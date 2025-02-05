@@ -42,16 +42,16 @@ module PacketFu
     end
 
     # Setter for the type.
-    def icmp_type=(i); typecast i; end
+    def icmp_type=(i); self[:icmp_type].read(i); end
     # Getter for the type.
     def icmp_type; self[:icmp_type].to_i; end
     # Setter for the code.
-    def icmp_code=(i); typecast i; end
+    def icmp_code=(i); self[:icmp_code].read(i); end
     # Getter for the code.
     def icmp_code; self[:icmp_code].to_i; end
     # Setter for the checksum. Note, this is calculated automatically with
     # icmp_calc_sum.
-    def icmp_sum=(i); typecast i; end
+    def icmp_sum=(i); self[:icmp_sum].read(i); end
     # Getter for the checksum.
     def icmp_sum; self[:icmp_sum].to_i; end
 

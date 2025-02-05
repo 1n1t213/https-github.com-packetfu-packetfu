@@ -111,31 +111,31 @@ module PacketFu
     end
 
     # Setter for the TCP source port.
-    def tcp_src=(i); typecast i; end
+    def tcp_src=(i); self[:tcp_src].read(i); end
     # Getter for the TCP source port.
     def tcp_src; self[:tcp_src].to_i; end
     # Setter for the TCP destination port.
-    def tcp_dst=(i); typecast i; end
+    def tcp_dst=(i); self[:tcp_dst].read(i); end
     # Getter for the TCP destination port.
     def tcp_dst; self[:tcp_dst].to_i; end
     # Setter for the TCP sequence number.
-    def tcp_seq=(i); typecast i; end
+    def tcp_seq=(i); self[:tcp_seq].read(i); end
     # Getter for the TCP sequence number.
     def tcp_seq; self[:tcp_seq].to_i; end
     # Setter for the TCP ackowlegement number.
-    def tcp_ack=(i); typecast i; end
+    def tcp_ack=(i); self[:tcp_ack].read(i); end
     # Getter for the TCP ackowlegement number.
     def tcp_ack; self[:tcp_ack].to_i; end
     # Setter for the TCP window size number.
-    def tcp_win=(i); typecast i; end
+    def tcp_win=(i); self[:tcp_win].read(i); end
     # Getter for the TCP window size number.
     def tcp_win; self[:tcp_win].to_i; end
     # Setter for the TCP checksum.
-    def tcp_sum=(i); typecast i; end
+    def tcp_sum=(i); self[:tcp_sum].read(i); end
     # Getter for the TCP checksum.
     def tcp_sum; self[:tcp_sum].to_i; end
     # Setter for the TCP urgent field.
-    def tcp_urg=(i); typecast i; end
+    def tcp_urg=(i); self[:tcp_urg].read(i); end
     # Getter for the TCP urgent field.
     def tcp_urg; self[:tcp_urg].to_i; end
 

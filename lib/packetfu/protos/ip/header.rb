@@ -174,31 +174,31 @@ module PacketFu
     # Getter for the header length (multiply by 4)
     def ip_hl; self[:ip_hl].to_i; end
     # Setter for the differentiated services
-    def ip_tos=(i); typecast i; end
+    def ip_tos=(i); self[:ip_tos].read(i); end
     # Getter for the differentiated services
     def ip_tos; self[:ip_tos].to_i; end
     # Setter for total length.
-    def ip_len=(i); typecast i; end
+    def ip_len=(i); self[:ip_len].read(i); end
     # Getter for total length.
     def ip_len; self[:ip_len].to_i; end
     # Setter for the identication number.
-    def ip_id=(i); typecast i; end
+    def ip_id=(i); self[:ip_id].read(i); end
     # Getter for the identication number.
     def ip_id; self[:ip_id].to_i; end
     # Setter for the fragmentation ID.
-    def ip_frag=(i); typecast i; end
+    def ip_frag=(i); self[:ip_frag].read(i); end
     # Getter for the fragmentation ID.
     def ip_frag; self[:ip_frag].to_i; end
     # Setter for the time to live.
-    def ip_ttl=(i); typecast i; end
+    def ip_ttl=(i); self[:ip_ttl].read(i); end
     # Getter for the time to live.
     def ip_ttl; self[:ip_ttl].to_i; end
     # Setter for the protocol number.
-    def ip_proto=(i); typecast i; end
+    def ip_proto=(i); self[:ip_proto].read(i); end
     # Getter for the protocol number.
     def ip_proto; self[:ip_proto].to_i; end
     # Setter for the checksum.
-    def ip_sum=(i); typecast i; end
+    def ip_sum=(i); self[:ip_sum].read(i); end
     # Getter for the checksum.
     def ip_sum; self[:ip_sum].to_i; end
     # Setter for the source IP address.
@@ -209,7 +209,7 @@ module PacketFu
       when Octets
         self[:ip_src] = i
       else
-        typecast i
+        self[:ip_src].read(i)
       end
     end
     # Getter for the source IP address.
@@ -222,7 +222,7 @@ module PacketFu
       when Octets
         self[:ip_dst] = i
       else
-        typecast i
+        self[:ip_dst].read(i)
       end
     end
     # Getter for the destination IP address.

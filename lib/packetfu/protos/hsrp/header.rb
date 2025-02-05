@@ -68,35 +68,35 @@ module PacketFu
     end
 
     # Setter for the type.
-    def hsrp_version=(i); typecast i; end
+    def hsrp_version=(i); self[:hsrp_version].read(i); end
     # Getter for the type.
     def hsrp_version; self[:hsrp_version].to_i; end
     # Setter for the type.
-    def hsrp_opcode=(i); typecast i; end
+    def hsrp_opcode=(i); self[:hsrp_opcode].read(i); end
     # Getter for the type.
     def hsrp_opcode; self[:hsrp_opcode].to_i; end
     # Setter for the type.
-    def hsrp_state=(i); typecast i; end
+    def hsrp_state=(i); self[:hsrp_state].read(i); end
     # Getter for the type.
     def hsrp_state; self[:hsrp_state].to_i; end
     # Setter for the type.
-    def hsrp_hellotime=(i); typecast i; end
+    def hsrp_hellotime=(i); self[:hsrp_hellotime].read(i); end
     # Getter for the type.
     def hsrp_hellotime; self[:hsrp_hellotime].to_i; end
     # Setter for the type.
-    def hsrp_holdtime=(i); typecast i; end
+    def hsrp_holdtime=(i); self[:hsrp_holdtime].read(i); end
     # Getter for the type.
     def hsrp_holdtime; self[:hsrp_holdtime].to_i; end
     # Setter for the type.
-    def hsrp_priority=(i); typecast i; end
+    def hsrp_priority=(i); self[:hsrp_priority].read(i); end
     # Getter for the type.
     def hsrp_priority; self[:hsrp_priority].to_i; end
     # Setter for the type.
-    def hsrp_group=(i); typecast i; end
+    def hsrp_group=(i); self[:hsrp_group].read(i); end
     # Getter for the type.
     def hsrp_group; self[:hsrp_group].to_i; end
     # Setter for the type.
-    def hsrp_reserved=(i); typecast i; end
+    def hsrp_reserved=(i); self[:hsrp_reserved].read(i); end
     # Getter for the type.
     def hsrp_reserved; self[:hsrp_reserved].to_i; end
 

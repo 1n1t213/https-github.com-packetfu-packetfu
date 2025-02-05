@@ -13,18 +13,10 @@ module StructFu
 
   alias len sz
 
-  # Typecast is used mostly by packet header classes, such as IPHeader,
-  # TCPHeader, and the like. It takes an argument, and casts it to the
-  # expected type for that element.
-  def typecast(i)
-    c = caller[0].match(/.*`([^']+)='/)[1]
-    self[c.to_sym].read i
-  end
-
-  # Used like typecast(), but specifically for casting Strings to StructFu::Strings.
+  # Helper for casting Strings to StructFu::Strings.
   def body=(i)
     if i.kind_of? ::String
-      typecast(i)
+      self[:body].read(i)
     elsif i.kind_of? StructFu
       self[:body] = i
     elsif i.nil?

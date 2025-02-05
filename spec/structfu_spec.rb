@@ -11,7 +11,6 @@ describe StructFu, "mixin methods" do
   it "should provide the basic StructFu methods" do
     expect(@sc).to respond_to(:sz)
     expect(@sc).to respond_to(:len)
-    expect(@sc).to respond_to(:typecast)
     expect(@sc).to respond_to(:body=)
   end
 end
@@ -145,8 +144,8 @@ describe StructFu::Int16le, "2 byte little-endian value" do
   end
 
   it "should raise when you try to change endianness" do
-    expect { @int.endian = :big }.to raise_error(NoMethodError, /undefined method `endian='/)
-    expect { @int.endian = :little }.to raise_error(NoMethodError, /undefined method `endian='/)
+    expect { @int.endian = :big }.to raise_error(NoMethodError, /undefined method .endian=/)
+    expect { @int.endian = :little }.to raise_error(NoMethodError, /undefined method .endian=/)
   end
 
 end
@@ -162,8 +161,8 @@ describe StructFu::Int16be, "2 byte big-endian value" do
   end
 
   it "should raise when you try to change endianness" do
-    expect { @int.endian = :big }.to raise_error(NoMethodError, /undefined method `endian='/)
-    expect { @int.endian = :little }.to raise_error(NoMethodError, /undefined method `endian='/)
+    expect { @int.endian = :big }.to raise_error(NoMethodError, /undefined method .endian=/)
+    expect { @int.endian = :little }.to raise_error(NoMethodError, /undefined method .endian=/)
   end
 
 end
@@ -234,8 +233,8 @@ describe StructFu::Int32le, "4 byte little-endian value" do
   end
 
   it "should raise when you try to change endianness" do
-    expect { @int.endian = :big }.to raise_error(NoMethodError, /undefined method `endian='/)
-    expect { @int.endian = :little }.to raise_error(NoMethodError, /undefined method `endian='/)
+    expect { @int.endian = :big }.to raise_error(NoMethodError, /undefined method .endian=/)
+    expect { @int.endian = :little }.to raise_error(NoMethodError, /undefined method .endian=/)
   end
 
 end
@@ -251,8 +250,8 @@ describe StructFu::Int32be, "4 byte big-endian value" do
   end
 
   it "should raise when you try to change endianness" do
-    expect { @int.endian = :big }.to raise_error(NoMethodError, /undefined method `endian='/)
-    expect { @int.endian = :little }.to raise_error(NoMethodError, /undefined method `endian='/)
+    expect { @int.endian = :big }.to raise_error(NoMethodError, /undefined method .endian=/)
+    expect { @int.endian = :little }.to raise_error(NoMethodError, /undefined method .endian=/)
   end
 
 end

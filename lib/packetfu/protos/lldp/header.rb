@@ -118,11 +118,11 @@ module PacketFu
     end
 
     # Setter for the LLDP chassis id type.
-    def lldp_chassis_id_type=(i); typecast i; end
+    def lldp_chassis_id_type=(i); self[:lldp_chassis_id_type].read(i); end
     # Getter for the LLDP chassis id type.
     def lldp_chassis_id_type; self[:lldp_chassis_id_type].to_i; end
     # Setter for the LLDP chassis id.
-    def lldp_chassis_id=(i); typecast i; end
+    def lldp_chassis_id=(i); self[:lldp_chassis_id].read(i); end
     # Getter for the LLDP chassis id .
     def lldp_chassis_id_readable()
       if self[:lldp_chassis_id_type].to_i == 4
@@ -132,11 +132,11 @@ module PacketFu
       end
     end
     # Setter for the LLDP port id type.
-    def lldp_port_id_type=(i); typecast i; end
+    def lldp_port_id_type=(i); self[:lldp_port_id_type].read(i); end
     # Getter for the LLDP port id type.
     def lldp_port_id_type; self[:lldp_port_id_type].to_i; end
     # Setter for the LLDP port id .
-    def lldp_port_id=(i); typecast i; end
+    def lldp_port_id=(i); self[:lldp_port_id].read(i); end
     # Getter for the LLDP port id.
     def lldp_port_id_readable()
       #if mac addr
@@ -156,40 +156,40 @@ module PacketFu
     end
 
     # Setter for the LLDP ttl.
-    def lldp_ttl=(i); typecast i; end
+    def lldp_ttl=(i); self[:lldp_ttl].read(i); end
     # Getter for the LLDP ttl.
     def lldp_ttl; self[:lldp_ttl].to_i; end
     # Setter for the LLDP port description.
-    def lldp_port_description=(i); typecast i; end
+    def lldp_port_description=(i); self[:lldp_port_description].read(i); end
     # Getter for the LLDP port description.
     def lldp_port_description; self[:lldp_port_description].to_s; end
     # Setter for the LLDP system name.
-    def lldp_system_name=(i); typecast i; end
+    def lldp_system_name=(i); self[:lldp_system_name].read(i); end
     # Getter for the LLDP system name.
     def lldp_system_name; self[:lldp_system_name].to_s; end
     # Setter for the LLDP system description.
-    def lldp_system_description=(i); typecast i; end
+    def lldp_system_description=(i); self[:lldp_system_description].read(i); end
     # Getter for the LLDP system description.
     def lldp_system_description; self[:lldp_system_description].to_s; end
     # Setter for the LLDP capability.
-    def lldp_capabilty=(i); typecast i; end
+    def lldp_capabilty=(i); self[:lldp_capabilty].read(i); end
     # Setter for the LLDP enabled capability.
-    def lldp_enabled_capability=(i); typecast i; end
+    def lldp_enabled_capability=(i); self[:lldp_enabled_capability].read(i); end
 
     # Setter for the LLDP address type.
-    def lldp_address_type=(i); typecast i; end
+    def lldp_address_type=(i); self[:lldp_address_type].read(i); end
     # Getter for the LLDP address type.
     def lldp_address_type; self[:lldp_address_type].to_i; end
     # Setter for the LLDP interface type.
-    def lldp_interface_type=(i); typecast i; end
+    def lldp_interface_type=(i); self[:lldp_interface_type].read(i); end
     # Getter for the LLDP interface type.
     def lldp_interface_type; self[:lldp_interface_type].to_i; end
     # Setter for the LLDP interface.
-    def lldp_interface=(i); typecast i; end
+    def lldp_interface=(i); self[:lldp_interface].read(i); end
     # Getter for the LLDP interface type.
     def lldp_interface; self[:lldp_interface].to_i; end
     # Setter for the LLDP oid.
-    def lldp_oid=(i); typecast i; end
+    def lldp_oid=(i); self[:lldp_oid].read(i); end
     # Getter for the LLDP oid type.
     def lldp_oid; self[:lldp_oid].to_i; end
 
