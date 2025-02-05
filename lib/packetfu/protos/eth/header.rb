@@ -157,15 +157,15 @@ module PacketFu
     end
 
     # Setter for the Ethernet destination address.
-    def eth_dst=(i); typecast(i); end
+    def eth_dst=(i); self[:eth_dst].read(i); end
     # Getter for the Ethernet destination address.
     def eth_dst; self[:eth_dst].to_s; end
     # Setter for the Ethernet source address.
-    def eth_src=(i); typecast(i); end
+    def eth_src=(i); self[:eth_src].read(i); end
     # Getter for the Ethernet source address.
     def eth_src; self[:eth_src].to_s; end
     # Setter for the Ethernet protocol number.
-    def eth_proto=(i); typecast(i); end
+    def eth_proto=(i); self[:eth_proto].read(i); end
     # Getter for the Ethernet protocol number.
     def eth_proto; self[:eth_proto].to_i; end
 

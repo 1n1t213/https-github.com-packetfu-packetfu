@@ -6,7 +6,7 @@ module PacketFu
   #
   # Subclassed options should set the correct TcpOption#kind by redefining 
   # initialize. They should also deal with various value types there by setting
-  # them explicitly with an accompanying StructFu#typecast for the setter. 
+  # them explicitly with an accompanying .read() call for the setter.
   #
   # By default, values are presumed to be strings, unless they are Numeric, in
   # which case a guess is made to the width of the Numeric based on the given
@@ -63,14 +63,14 @@ module PacketFu
     end
 
     # Setter for the "kind" byte of this option.
-    def kind=(i); typecast i; end
+    def kind=(i); self[:kind].read(i); end
     # Setter for the "option length" byte for this option.
-    def optlen=(i); typecast i; end
+    def optlen=(i); self[:optlen].read(i); end
 
     # Setter for the value of this option. 
     def value=(i)
       if i.kind_of? Numeric
-        typecast i
+        self[:value].read(i)
       elsif i.respond_to? :to_s
         self[:value] = i
       else
@@ -140,7 +140,7 @@ module PacketFu
         self[:value] = Int16.new(args[:value])
       end
 
-      def value=(i); typecast i; end
+      def value=(i); self[:value].read(i); end
 
       # MSS options with lengths other than 4 are malformed.
       def decode
@@ -166,7 +166,7 @@ module PacketFu
         self[:value] = Int8.new(args[:value])
       end
 
-      def value=(i); typecast i; end
+      def value=(i); self[:value].read(i); end
 
       # WS options with lengths other than 3 are malformed.
       def decode
@@ -215,7 +215,7 @@ module PacketFu
         )
       end
 
-      def optlen=(i); typecast i; end
+      def optlen=(i); self[:optlen].read(i); end
 
       def value=(i)
         self[:optlen] = Int8.new(i.to_s.size + 2)

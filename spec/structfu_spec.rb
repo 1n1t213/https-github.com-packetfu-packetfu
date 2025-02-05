@@ -11,7 +11,6 @@ describe StructFu, "mixin methods" do
   it "should provide the basic StructFu methods" do
     expect(@sc).to respond_to(:sz)
     expect(@sc).to respond_to(:len)
-    expect(@sc).to respond_to(:typecast)
     expect(@sc).to respond_to(:body=)
   end
 end

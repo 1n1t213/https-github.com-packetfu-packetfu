@@ -129,23 +129,23 @@ module PacketFu
     # Getter for the flow label.
     def ipv6_label; self[:ipv6_label].to_i; end
     # Setter for the payload length.
-    def ipv6_len=(i); typecast i; end
+    def ipv6_len=(i); self[:ipv6_len].read(i); end
     # Getter for the payload length.
     def ipv6_len; self[:ipv6_len].to_i; end
     # Setter for the next protocol header.
-    def ipv6_next=(i); typecast i; end
+    def ipv6_next=(i); self[:ipv6_next].read(i); end
     # Getter for the next protocol header.
     def ipv6_next; self[:ipv6_next].to_i; end
     # Setter for the hop limit.
-    def ipv6_hop=(i); typecast i; end
+    def ipv6_hop=(i); self[:ipv6_hop].read(i); end
     # Getter for the hop limit.
     def ipv6_hop; self[:ipv6_hop].to_i; end
     # Setter for the source address.
-    def ipv6_src=(i); typecast i; end
+    def ipv6_src=(i); self[:ipv6_src].read(i); end
     # Getter for the source address.
     def ipv6_src; self[:ipv6_src].to_i; end
     # Setter for the destination address.
-    def ipv6_dst=(i); typecast i; end
+    def ipv6_dst=(i); self[:ipv6_dst].read(i); end
     # Getter for the destination address.
     def ipv6_dst; self[:ipv6_dst].to_i; end
 

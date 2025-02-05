@@ -47,16 +47,16 @@ module PacketFu
     end
 
     # Setter for the type.
-    def icmpv6_type=(i); typecast i; end
+    def icmpv6_type=(i); self[:icmpv6_type].read(i); end
     # Getter for the type.
     def icmpv6_type; self[:icmpv6_type].to_i; end
     # Setter for the code.
-    def icmpv6_code=(i); typecast i; end
+    def icmpv6_code=(i); self[:icmpv6_code].read(i); end
     # Getter for the code.
     def icmpv6_code; self[:icmpv6_code].to_i; end
     # Setter for the checksum. Note, this is calculated automatically with 
     # icmpv6_calc_sum.
-    def icmpv6_sum=(i); typecast i; end
+    def icmpv6_sum=(i); self[:icmpv6_sum].read(i); end
     # Getter for the checksum.
     def icmpv6_sum; self[:icmpv6_sum].to_i; end
 

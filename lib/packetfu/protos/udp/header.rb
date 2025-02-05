@@ -44,19 +44,19 @@ module PacketFu
     end
 
     # Setter for the UDP source port.
-    def udp_src=(i); typecast i; end
+    def udp_src=(i); self[:udp_src].read(i); end
     # Getter for the UDP source port.
     def udp_src; self[:udp_src].to_i; end
     # Setter for the UDP destination port.
-    def udp_dst=(i); typecast i; end
+    def udp_dst=(i); self[:udp_dst].read(i); end
     # Getter for the UDP destination port.
     def udp_dst; self[:udp_dst].to_i; end
     # Setter for the length field. Usually should be recalc()'ed instead.
-    def udp_len=(i); typecast i; end
+    def udp_len=(i); self[:udp_len].read(i); end
     # Getter for the length field.
     def udp_len; self[:udp_len].to_i; end
     # Setter for the checksum. Usually should be recalc()'ed instad.
-    def udp_sum=(i); typecast i; end
+    def udp_sum=(i); self[:udp_sum].read(i); end
     # Getter for the checksum.
     def udp_sum; self[:udp_sum].to_i; end
 

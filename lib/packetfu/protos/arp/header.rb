@@ -66,39 +66,39 @@ module PacketFu
     end
 
     # Setter for the ARP hardware type.
-    def arp_hw=(i); typecast i; end
+    def arp_hw=(i); self[:arp_hw].read(i); end
     # Getter for the ARP hardware type.
     def arp_hw; self[:arp_hw].to_i; end
     # Setter for the ARP protocol.
-    def arp_proto=(i); typecast i; end
+    def arp_proto=(i); self[:arp_proto].read(i); end
     # Getter for the ARP protocol.
     def arp_proto; self[:arp_proto].to_i; end
     # Setter for the ARP hardware type length.
-    def arp_hw_len=(i); typecast i; end
+    def arp_hw_len=(i); self[:arp_hw_len].read(i); end
     # Getter for the ARP hardware type length.
     def arp_hw_len; self[:arp_hw_len].to_i; end
     # Setter for the ARP protocol length.
-    def arp_proto_len=(i); typecast i; end
+    def arp_proto_len=(i); self[:arp_proto_len].read(i); end
     # Getter for the ARP protocol length.
     def arp_proto_len; self[:arp_proto_len].to_i; end
     # Setter for the ARP opcode. 
-    def arp_opcode=(i); typecast i; end
+    def arp_opcode=(i); self[:arp_opcode].read(i); end
     # Getter for the ARP opcode. 
     def arp_opcode; self[:arp_opcode].to_i; end
     # Setter for the ARP source MAC address.
-    def arp_src_mac=(i); typecast i; end
+    def arp_src_mac=(i); self[:arp_src_mac].read(i); end
     # Getter for the ARP source MAC address.
     def arp_src_mac; self[:arp_src_mac].to_s; end
     # Getter for the ARP source IP address.
-    def arp_src_ip=(i); typecast i; end
+    def arp_src_ip=(i); self[:arp_src_ip].read(i); end
     # Setter for the ARP source IP address.
     def arp_src_ip; self[:arp_src_ip].to_s; end
     # Setter for the ARP destination MAC address.
-    def arp_dst_mac=(i); typecast i; end
+    def arp_dst_mac=(i); self[:arp_dst_mac].read(i); end
     # Setter for the ARP destination MAC address.
     def arp_dst_mac; self[:arp_dst_mac].to_s; end
     # Setter for the ARP destination IP address.
-    def arp_dst_ip=(i); typecast i; end
+    def arp_dst_ip=(i); self[:arp_dst_ip].read(i); end
     # Getter for the ARP destination IP address.
     def arp_dst_ip; self[:arp_dst_ip].to_s; end
 
