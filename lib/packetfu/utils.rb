@@ -245,13 +245,14 @@ module PacketFu
           raise ArgumentError, "Cannot ifconfig #{iface}"
         end
         real_iface = ifconfig_data.first
-        ret[:iface] = real_iface.split.first.downcase
+        ret[:iface] = real_iface.split.first.downcase.delete_suffix(':')
         if real_iface =~ /[\s]HWaddr[\s]+([0-9a-fA-F:]{17})/i
           ret[:eth_saddr] = $1.downcase
-          ret[:eth_src] = EthHeader.mac2str(ret[:eth_saddr])
         end
         ifconfig_data.each do |s|
           case s
+          when /ether\s+(([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2})/
+            ret[:eth_saddr] = $1.downcase
           when /inet addr:[\s]*([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)(.*Mask:([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+))?/i
             ret[:ip_saddr] = $1
             ret[:ip_src] = [IPAddr.new($1).to_i].pack("N")
@@ -274,7 +275,6 @@ module PacketFu
           case s
           when /ether[\s]([0-9a-fA-F:]{17})/i
             ret[:eth_saddr] = $1
-            ret[:eth_src] = EthHeader.mac2str(ret[:eth_saddr])
           when /inet[\s]*([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)(.*Mask[\s]+(0x[a-f0-9]+))?/i
             imask = 0
             if $3
@@ -302,7 +302,6 @@ module PacketFu
             case s
             when /ether[\s]*([0-9a-fA-F:]{17})/
               ret[:eth_saddr] = $1.downcase
-              ret[:eth_src] = EthHeader.mac2str(ret[:eth_saddr])
             when /inet[\s]*([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)(.*netmask[\s]*(0x[0-9a-fA-F]{8}))?/
               ret[:ip_saddr] = $1
               ret[:ip_src] = [IPAddr.new($1).to_i].pack("N")
@@ -325,7 +324,6 @@ module PacketFu
             case s
             when /lladdr[\s]*([0-9a-fA-F:]{17})/
               ret[:eth_saddr] = $1.downcase
-              ret[:eth_src] = EthHeader.mac2str(ret[:eth_saddr])
             when /inet[\s]*([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)(.*netmask[\s]*(0x[0-9a-fA-F]{8}))?/
               ret[:ip_saddr] = $1
               ret[:ip_src] = [IPAddr.new($1).to_i].pack("N")
@@ -337,6 +335,8 @@ module PacketFu
           end
         end # openbsd
       end # RUBY_PLATFORM
+
+      ret[:eth_src] = EthHeader.mac2str(ret[:eth_saddr]) if ret[:eth_saddr]
       ret
     end
 
